@@ -1,0 +1,60 @@
+{
+    "books": [{
+        "id": 0,
+        "name": "小家，越住越大2",
+        "author": 0,
+        "publisher": 0,
+        "publishing_data": "2018-4",
+        "price": "68.00",
+        "ISBN": "9787508686271",
+        "thumbnail": "https://img1.doubanio.com/view/subject/l/public/s29745409.jpg",
+        "length": 368
+    }, {
+        "id": 1,
+        "name": "活着",
+        "author": 1,
+        "publisher": 1,
+        "publishing_data": "2012-8",
+        "price": "20.00",
+        "ISBN": "9787506365437",
+        "thumbnail": "https://img3.doubanio.com/view/subject/l/public/s27279654.jpg",
+        "length": 191
+    }, {
+        "id": 2,
+        "name": "许三观卖血记",
+        "author": 1,
+        "publisher": 2,
+        "publishing_data": "1998-9",
+        "price": "16.80",
+        "ISBN": "9787544211765",
+        "thumbnail": "https://img3.doubanio.com/view/subject/l/public/s1074291.jpg",
+        "length": 269
+    }],
+    "authors": [{
+        "id": 0,
+        "name": "逯薇",
+        "weibo": "lu-wei",
+        "birth_day": "1980-01-01"
+    }, {
+        "id": 1,
+        "name": "余华",
+        "weibo": "yu-hua",
+        "birth_day": "1960-04-03"
+    }],
+    "publishers": [{
+        "id": 0,
+        "name": "中信出版集团股份有限公司",
+        "location": "北京",
+        "website": "http://press.citic/"
+    }, {
+        "id": 1,
+        "name": "作家出版社",
+        "location": "北京",
+        "website": "http://www.zgzjcbs.com/"
+    }, {
+        "id": 2,
+        "name": "南海出版公司",
+        "location": "海南",
+        "website": "http://www.nhcb.com.cn/"
+    }]
+}
