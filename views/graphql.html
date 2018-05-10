@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fetching data from GraphQL APIs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h3>图书列表</h3>
+
+        <table class="table" id="table-content">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">书名</th>
+                    <th scope="col">出版时间</th>
+                    <th scope="col">价格</th>
+                    <th scope="col">作者</th>
+                    <th scope="col">页数</th>
+                    <th scope="col">ISBN</th>
+                </tr>
+            </thead>
+        </table>
+
+		<div class="row justify-content-md-center">
+			<div class="col-md-6">
+				<h3>添加图书</h3>
+				<form action="">
+					<div class="form-group">
+						<label for="email">书名</label>
+						<input type="text" class="form-control" id="book_name" placeholder="书名">
+					</div>
+					<button type="submit" class="btn btn-primary">添加</button>
+				</form>
+			</div>
+		</div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="/libs/graphql.min.js"></script>
+    <script src="/graphql.js"></script>
+</body>
+</html>

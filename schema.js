@@ -2,7 +2,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { find, filter } from 'lodash';
 
 const fs = require('fs');
-const data = JSON.parse(fs.readFileSync('./REST/data.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
 const typeDefs = `
     type Books {
@@ -33,18 +33,62 @@ const typeDefs = `
         books: [Books]
     }
 
+    type newlyAddedBook {
+        id: Int
+        message: String
+    }
+
+    type Mutation {
+        addBook(name: String!): newlyAddedBook
+    }
+
     type Query {
-        books: [Books]
+        books(id: Int): [Books]
+        authors(id: Int): [Authors]
+        publishers(id: Int): [Publishers]
     }
 `;
 
-function getBooks() {
-    return data.books;
+function getBooks(root, {id}) {
+    if (id !== undefined) {
+        return [find(data.books, {id})];
+    } else {
+        return data.books;
+    }
+}
+
+function getAuthors(root, {id}) {
+    if (id !== undefined) {
+        return [find(data.authors, {id})];
+    } else {
+        return data.authors;
+    }
+}
+
+function getPublishers(root, {id}) {
+    if (id !== undefined) {
+        return [find(data.publishers, {id})];
+    } else {
+        return data.publishers;
+    }
 }
 
 const resolvers = {
     Query: {
         books: getBooks,
+        authors: getAuthors,
+        publishers: getPublishers,
+    },
+
+    Mutation: {
+        addBook: (root, {name}) => {
+            console.log(`New 📖 added - ${name}`);
+
+            return {
+                id: parseInt(Date.now() / 1000, 10),
+                message: `New 📖 added - ${name}`,
+            };
+        },
     },
 
     Books: {

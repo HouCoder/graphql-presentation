@@ -1,4 +1,4 @@
-const baseURL = 'http://127.0.0.1:3001'
+const baseURL = '/api';
 
 function getBooks() {
     return axios.get(baseURL + '/books');
