@@ -2,24 +2,34 @@
 
 Holy 🦀️, I need to make a presentation to my co-works 🤠.
 
-## Precedures
+## Setup
 
-1. Show the REST demo.
-1. Talk about disadvantages of REST.
+1. Clone this repo.
+1. 😎 `$ yarn install` or 💩 `$ npm install`.
+1. `$ node index.js`.
 
-REST 的概念很好理解，一切皆资源，通过 HTTP 协议自带的方法来对资源进行操作：GET，POST，PUT 和 DELETE，对于 web 开发工程师来说理解和使用起来更简单。
+## Pages
 
-1. Introduce the solution - GraphQL.
-
-
-1. History of GraphQL.
-1. GraphQL introduction.
-1. Try it on GitHub/Apollo.
-1. Done
+1. Rest demo: http://localhost:3000/rest-demo
+1. Mutation: http://localhost:3000/mutation
+1. GraphQL demo: http://localhost:3000/graphql-demo
 
 ## Links
 
+### GraphQL in read 🌍 
+
+1. GitHub: https://developer.github.com/v4/explorer/
+
+### GraphQL basic
+
+1. https://graphql.org/learn/
 1. https://medium.com/@weblab_tech/graphql-everything-you-need-to-know-58756ff253d8
-1. https://medium.com/javascript-scene/graphql-at-the-rest-aurant-f4091054e82a
-1. https://medium.com/codingthesmartway-com-blog/rest-vs-graphql-418eac2e3083
+
+### Subscription
+
+1. https://www.youtube.com/watch?v=PsjiL6Yl1ag
+
+### Others
+
 1. https://medium.freecodecamp.org/five-common-problems-in-graphql-apps-and-how-to-fix-them-ac74d37a293c
+1. https://launchpad.graphql.com/

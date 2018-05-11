@@ -1,8 +1,10 @@
 import { makeExecutableSchema } from 'graphql-tools';
 import { find, filter } from 'lodash';
+import { PubSub, withFilter } from 'graphql-subscriptions';
 
 const fs = require('fs');
 const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+const pubsub = new PubSub();
 
 const typeDefs = `
     type Books {
@@ -33,13 +35,17 @@ const typeDefs = `
         books: [Books]
     }
 
-    type newlyAddedBook {
+    type newBook {
         id: Int
         message: String
     }
 
     type Mutation {
-        addBook(name: String!): newlyAddedBook
+        addBook(name: String!): newBook
+    }
+
+    type Subscription {
+        bookAdded: newBook
     }
 
     type Query {
@@ -73,6 +79,20 @@ function getPublishers(root, {id}) {
     }
 }
 
+function addBook(root, {name}) {
+    console.log(`addBook - New 📖 added - ${name}`);
+
+    const resultData = {
+        id: parseInt(Date.now() / 1000, 10),
+        message: `New 📖 added - ${name}`,
+    };
+
+    // Broadcast event
+    pubsub.publish('BOOK_ADDED', { bookAdded: resultData });
+
+    return resultData;
+}
+
 const resolvers = {
     Query: {
         books: getBooks,
@@ -81,13 +101,12 @@ const resolvers = {
     },
 
     Mutation: {
-        addBook: (root, {name}) => {
-            console.log(`New 📖 added - ${name}`);
+        addBook,
+    },
 
-            return {
-                id: parseInt(Date.now() / 1000, 10),
-                message: `New 📖 added - ${name}`,
-            };
+    Subscription: {
+        bookAdded: {
+            subscribe: () => pubsub.asyncIterator('BOOK_ADDED'),
         },
     },
 
