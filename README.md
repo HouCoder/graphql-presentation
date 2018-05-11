@@ -19,6 +19,7 @@ Holy 🦀️, I need to make a presentation to my co-works 🤠.
 ### GraphQL in read 🌍 
 
 1. GitHub: https://developer.github.com/v4/explorer/
+1. https://dev-blog.apollodata.com/graphql-explained-5844742f195e
 
 ### GraphQL basic
 
